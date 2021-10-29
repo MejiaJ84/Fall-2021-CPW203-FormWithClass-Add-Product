@@ -1,7 +1,5 @@
 {
-    "files": [
-        "myTypeScriptFile.ts"
-    ],
+    
     "compilerOptions": {
         "removeComments": true,
         "outDir": "scripts",  // folder that the JS will output to
