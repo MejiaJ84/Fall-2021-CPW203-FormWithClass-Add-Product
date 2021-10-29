@@ -1,5 +1,6 @@
 input[type=text]{
     padding: .2em;
+    font-family: 'Fruktur', cursive;
 }
 
 label{
@@ -10,4 +11,22 @@ label{
 
 input[type=checkbox]{
     margin-left: 50%;
+    cursor: crosshair;
+}
+
+input[type=button]{
+    border-radius: .8em;
+    margin-left: 50%;
+    float: left;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+body{
+    font-family: 'Fruktur', cursive;
+}
+
+#rating{
+    font-family: 'Fruktur', cursive;
 }
