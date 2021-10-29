@@ -50,3 +50,14 @@ form{
     margin-bottom: 5em;
 }
 
+#error-list{
+    color: red;
+    list-style-type: lower-roman;
+}
+
+.rating-error{
+    font-style: italic;
+    cursor: pointer;
+    width: 70%;
+}
+

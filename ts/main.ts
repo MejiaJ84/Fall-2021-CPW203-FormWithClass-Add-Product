@@ -26,6 +26,23 @@ function addVideoGame(){
         let game = getVideoGame();
         displayGame(game);
     }
+
+    else{
+        displayRatingsLink();
+    }
+}
+
+function displayRatingsLink(){
+    let ratingsElements = document.querySelectorAll(".rating-error");
+    for(let i = 0; i < ratingsElements.length; i++){
+        let currElements = <HTMLElement>ratingsElements[i];
+        currElements.onclick = goToRatingsPage;
+        //currElements.innerHTML += "<a target = '_blank' href= 'https://www.esrb.org/'>Click here for more info.</a>"
+    }
+}
+
+function goToRatingsPage(){
+    window.open("https://www.esrb.org/", "_blank")
 }
 
 // created function to shorten document.getelementbyid
@@ -96,7 +113,10 @@ function getInputById(id:string):HTMLInputElement{
     return <HTMLInputElement>document.getElementById(id);
 }
 
-// add validation code *******
+/**
+ * Ensures all inputs are valid
+ * @returns true if is valid
+ */
 function isAllDataValid():boolean{
     let isValid = true;
 
@@ -116,13 +136,11 @@ function isAllDataValid():boolean{
     let rating = (<HTMLOptionElement>getById("rating")).value;
     if(rating == ""){
         isValid = false;
-        addErrorMessage("You must choose a rating.");
+        addErrorMsgWithCustomClass("You must choose a rating.", "rating-error");
     }
 
     return isValid;
 }
-
-
 
 function addErrorMessage(errMsg:string) {
     let errorSummary = getById("error-list");
@@ -130,4 +148,13 @@ function addErrorMessage(errMsg:string) {
     errorItem.innerText = errMsg;
     errorSummary.appendChild(errorItem);
 }
+
+function addErrorMsgWithCustomClass(errMsg:string, cssClass:string) {
+    let errorSummary = getById("error-list");
+    let errorItem = document.createElement("li");
+    errorItem.classList.add(cssClass);
+    errorItem.innerText = errMsg;
+    errorSummary.appendChild(errorItem);
+}
+
 
