@@ -1,5 +1,7 @@
 * Add Product Form
 
+** See the live site at https://mejiaj84.github.io/Fall-2021-CPW203-FormWithClass-Add-Product/
+
 This project will allow me to get more practice using more 
 - TypeScript 
 - Form validation 
