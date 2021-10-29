@@ -11,8 +11,16 @@ window.onload = function(){
 
 }
 
+/**
+ * Clears all errors in the validation summary
+ */
+function clearAllErrors(){
+    let errorSummary = getById("error-list");
+    errorSummary.innerText = "";
+}
+
 function addVideoGame(){
-    //alert("You rang");
+    clearAllErrors();
 
     if(isAllDataValid()){
         let game = getVideoGame();
@@ -52,6 +60,10 @@ function getVideoGame():VideoGame{
 
 }
 
+/**
+ * Creates h2 and <p> elements to display the game info inside of
+ * @param myGame The game and info to display
+ */
 function displayGame(myGame:VideoGame):void{
     let displayDiv = getById("display");
 
@@ -79,9 +91,35 @@ function displayGame(myGame:VideoGame):void{
 
 }
 
+// created a function to get input element values
+function getInputById(id:string):HTMLInputElement{
+    return <HTMLInputElement>document.getElementById(id);
+}
+
 // add validation code *******
-function isAllDataValid(){
-    return true;
+function isAllDataValid():boolean{
+    let isValid = true;
+
+    let title = getInputById("title").value;
+    if(title == ""){
+        isValid = false;
+        let errorSummary = getById("error-list");
+        let errorItem = document.createElement("li");
+        errorItem.innerText = "Title is required."
+        errorSummary.appendChild(errorItem);
+    }
+
+    let price = getInputById("price").value;
+    let priceValue = parseFloat(price);
+    if(price == "" || isNaN(priceValue)){
+        isValid = false;
+        let errorSummary = getById("error-list");
+        let errorItem = document.createElement("li");
+        errorItem.innerText = "Price is required and must be a number."
+        errorSummary.appendChild(errorItem);
+    }
+
+    return isValid;
 }
 
 
