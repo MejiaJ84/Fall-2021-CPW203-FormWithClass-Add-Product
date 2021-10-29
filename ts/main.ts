@@ -103,24 +103,31 @@ function isAllDataValid():boolean{
     let title = getInputById("title").value;
     if(title == ""){
         isValid = false;
-        let errorSummary = getById("error-list");
-        let errorItem = document.createElement("li");
-        errorItem.innerText = "Title is required."
-        errorSummary.appendChild(errorItem);
+        addErrorMessage("Title is required.");
     }
 
     let price = getInputById("price").value;
     let priceValue = parseFloat(price);
     if(price == "" || isNaN(priceValue)){
         isValid = false;
-        let errorSummary = getById("error-list");
-        let errorItem = document.createElement("li");
-        errorItem.innerText = "Price is required and must be a number."
-        errorSummary.appendChild(errorItem);
+        addErrorMessage("Price is required and should be a number.");
+    }
+
+    let rating = (<HTMLOptionElement>getById("rating")).value;
+    if(rating == ""){
+        isValid = false;
+        addErrorMessage("You must choose a rating.");
     }
 
     return isValid;
 }
 
 
+
+function addErrorMessage(errMsg:string) {
+    let errorSummary = getById("error-list");
+    let errorItem = document.createElement("li");
+    errorItem.innerText = errMsg;
+    errorSummary.appendChild(errorItem);
+}
 

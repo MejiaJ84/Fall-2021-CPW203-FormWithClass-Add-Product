@@ -57,19 +57,24 @@ function isAllDataValid() {
     var title = getInputById("title").value;
     if (title == "") {
         isValid = false;
-        var errorSummary = getById("error-list");
-        var errorItem = document.createElement("li");
-        errorItem.innerText = "Title is required.";
-        errorSummary.appendChild(errorItem);
+        addErrorMessage("Title is required.");
     }
     var price = getInputById("price").value;
     var priceValue = parseFloat(price);
     if (price == "" || isNaN(priceValue)) {
         isValid = false;
-        var errorSummary = getById("error-list");
-        var errorItem = document.createElement("li");
-        errorItem.innerText = "Price is required and must be a number.";
-        errorSummary.appendChild(errorItem);
+        addErrorMessage("Price is required and should be a number.");
+    }
+    var rating = getById("rating").value;
+    if (rating == "") {
+        isValid = false;
+        addErrorMessage("You must choose a rating.");
     }
     return isValid;
+}
+function addErrorMessage(errMsg) {
+    var errorSummary = getById("error-list");
+    var errorItem = document.createElement("li");
+    errorItem.innerText = errMsg;
+    errorSummary.appendChild(errorItem);
 }
