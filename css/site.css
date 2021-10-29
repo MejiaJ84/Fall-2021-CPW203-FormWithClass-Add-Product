@@ -36,8 +36,8 @@ h1{
     text-align: center;
 }
 
-p{
-    margin: auto;
+#validation-summary{
+    margin-left: 40%;
     display: inline-block;
     padding-bottom: 2em;
 }
@@ -45,3 +45,4 @@ p{
 label:nth-of-type(4){
     margin-top: 1em;
 } 
+

@@ -12,7 +12,7 @@ window.onload = function(){
 }
 
 function addVideoGame(){
-    alert("You rang");
+    //alert("You rang");
 
     if(isAllDataValid()){
         let game = getVideoGame();
@@ -53,7 +53,30 @@ function getVideoGame():VideoGame{
 }
 
 function displayGame(myGame:VideoGame):void{
-    // TODO: display video game below the form
+    let displayDiv = getById("display");
+
+    // creates h2 with game heading
+    let gameHeading = document.createElement("h2");
+    gameHeading.innerText = myGame.title;
+
+    let physicalOrDigitalDisplay = "";
+    if(myGame.isDigitalOnly){
+        physicalOrDigitalDisplay = "This is a digital only game.";
+    }
+    else{
+        physicalOrDigitalDisplay = "Physical copies available.";
+    }
+
+    // creat <p> with game details
+    let gameInfo = document.createElement("p");
+    gameInfo.innerText = `${myGame.title} has a rating of ${myGame.rating}. It costs $${myGame.price.toFixed(2)}.  ${physicalOrDigitalDisplay}`
+    
+    // add h2 int the div id = display
+    displayDiv.appendChild(gameHeading);
+
+    // add p game info
+    displayDiv.appendChild(gameInfo);
+
 }
 
 // add validation code *******
