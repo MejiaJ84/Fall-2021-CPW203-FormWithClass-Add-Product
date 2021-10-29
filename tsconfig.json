@@ -1,0 +1,11 @@
+{
+    "files": [
+        "myTypeScriptFile.ts"
+    ],
+    "compilerOptions": {
+        "removeComments": true,
+        "outDir": "scripts",  // folder that the JS will output to
+        "target": "es5",
+        "watch" : true
+    }
+}
