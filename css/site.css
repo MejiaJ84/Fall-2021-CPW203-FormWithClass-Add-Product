@@ -12,6 +12,7 @@ label{
 input[type=checkbox]{
     margin-left: 50%;
     cursor: crosshair;
+    margin: 0;
 }
 
 input[type=button]{
@@ -30,3 +31,17 @@ body{
 #rating{
     font-family: 'Fruktur', cursive;
 }
+
+h1{
+    text-align: center;
+}
+
+p{
+    margin: auto;
+    display: inline-block;
+    padding-bottom: 2em;
+}
+
+label:nth-of-type(4){
+    margin-top: 1em;
+} 
